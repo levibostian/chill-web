@@ -1,0 +1,29 @@
+/* The unread count next to channel name in sidebar */
+.p-channel_sidebar__badge {
+    display: none !important;
+}
+
+/* The button in sidebar when you have a long list of channels, it says "More unreads". */
+.p-channel_sidebar__banner {
+    display: none !important;
+}
+
+/* banner on bottom of webpage. It currently shows "Slack needs permission to enable push notifications" and is annoying and distracting.  */
+.p-client__banners {
+    display: none !important;
+}
+
+/* Heading such as "Channels" or "Starred". */
+.p-channel_sidebar__section_heading_channels {
+    display: none !important;
+}
+
+/* Name of channel in sidebar */
+.p-channel_sidebar__channel {
+    display: none !important;
+}
+
+/* Do not bold channel name when there are unread messages */
+.p-channel_sidebar__link--unread .p-channel_sidebar__name {
+    font-weight: normal !important;
+}

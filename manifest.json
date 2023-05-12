@@ -8,6 +8,10 @@
     {
       "matches": ["*://*.github.com/*"],
       "js": ["scripts/github.js"]
+    }, {
+      "matches": ["*://*.slack.com/*"],
+      "js": ["scripts/slack.js"],
+      "css": ["styles/slack.css"]
     }
   ]
 }
