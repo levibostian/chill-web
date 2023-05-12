@@ -1,0 +1,11 @@
+name: Test
+
+on: [pull_request]
+
+jobs: 
+  build-extension: 
+    runs-on: ubuntu-latest
+    steps: 
+    - uses: actions/checkout@v3
+    - name: Build 
+      run: npx web-ext build
