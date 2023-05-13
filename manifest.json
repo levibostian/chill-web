@@ -2,7 +2,7 @@
   "name": "chill",
   "description": "Make websites less distracting. Focus on the content, not on notifications. ",
   "manifest_version": 2,  
-  "version": "1.0.0",
+  "version": "0.0.0",
   "homepage_url": "https://github.com/levibostian/chill-web",
   "content_scripts": [
     {

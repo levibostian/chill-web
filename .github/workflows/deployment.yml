@@ -1,0 +1,35 @@
+name: Deploy extension 
+
+on: 
+  push:
+    branches: [main, beta, alpha]
+
+jobs: 
+  deploy-extension:
+    permissions:
+      contents: write # create tags and releases       
+    runs-on: ubuntu-latest
+    steps: 
+    - uses: actions/checkout@v3
+
+    # workaround https://github.com/cycjimmy/semantic-release-action/issues/159#issuecomment-1490892625
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 14
+
+    - name: Deploy extension via semantic-release 
+      uses: cycjimmy/semantic-release-action@v3
+      with: 
+        extra_plugins: |
+          semantic-release-firefox-add-on  
+          conventional-changelog-conventionalcommits
+        branches: |
+          [
+            'main',
+            { name: 'beta', prerelease: true },
+            { name: 'alpha', prerelease: true }
+          ]
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        FIREFOX_API_KEY: ${{ secrets.MOZILLA_ADDONS_JWT_ISSUER }}
+        FIREFOX_SECRET_KEY: ${{ secrets.MOZILLA_ADDONS_JWT_SECRET }}

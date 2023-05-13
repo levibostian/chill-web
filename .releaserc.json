@@ -1,0 +1,23 @@
+{
+  "tagFormat": "${version}",
+  "plugins": [
+    ["@semantic-release/commit-analyzer", {
+      "preset": "conventionalcommits"
+    }],
+    ["@semantic-release/release-notes-generator", {        
+      "preset": "conventionalcommits"
+    }],
+    ["semantic-release-firefox-add-on", {
+      "extensionId": "{0f4fdcc1-3d09-4701-850d-fe787602b32b}",
+      "targetXpi": "chill-${nextRelease.version}.xpi",
+      "artifactsDir": "artifacts",
+      "sourceDir": "./",
+      "channel": "listed"
+    }],
+    ["@semantic-release/github", {
+      "assets": [
+        "artifacts/chill-${nextRelease.version}.xpi"
+      ]
+    }]
+  ]
+}
