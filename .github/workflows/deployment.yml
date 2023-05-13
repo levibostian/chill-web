@@ -2,7 +2,7 @@ name: Deploy extension
 
 on: 
   push:
-    branches: [main, beta, alpha]
+    branches: [main]
 
 jobs: 
   deploy-extension:
@@ -23,11 +23,11 @@ jobs:
         extra_plugins: |
           semantic-release-firefox-add-on  
           conventional-changelog-conventionalcommits
+        # Can only deploy on main with semantic-release because semantic generates beta/alpha git tags with a suffix `.beta-X` and firefox addons does not allow that version format. 
+        # We can still publish beta versions of a addon, but we can't use semantic to release it unless we modify the version just for the add-on. 
         branches: |
           [
-            'main',
-            { name: 'beta', prerelease: true },
-            { name: 'alpha', prerelease: true }
+            'main'
           ]
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
