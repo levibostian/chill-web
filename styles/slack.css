@@ -27,3 +27,8 @@
 .p-channel_sidebar__link--unread .p-channel_sidebar__name {
     font-weight: normal !important;
 }
+
+/* Unread channel names have a slightly different color then unread. This removes that color difference so read or unread, channel name is same color */
+.p-channel_sidebar__link--unread:not(.p-channel_sidebar__link--selected) .p-channel_sidebar__name {
+    color: inherit !important;
+}
