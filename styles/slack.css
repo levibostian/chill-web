@@ -13,22 +13,29 @@
     display: none !important;
 }
 
-/* Heading such as "Channels" or "Starred". */
-.p-channel_sidebar__section_heading_channels {
-    display: none !important;
-}
-
-/* Name of channel in sidebar */
-.p-channel_sidebar__channel {
-    display: none !important;
-}
-
 /* Do not bold channel name when there are unread messages */
 .p-channel_sidebar__link--unread .p-channel_sidebar__name {
-    font-weight: normal !important;
+    font-weight: inherit !important;
 }
 
 /* Unread channel names have a slightly different color then unread. This removes that color difference so read or unread, channel name is same color */
 .p-channel_sidebar__link--unread:not(.p-channel_sidebar__link--selected) .p-channel_sidebar__name {
     color: inherit !important;
+}
+
+/* channel name when unread looks different then read. This removes those rules. */
+.p-channel_sidebar__channel--unread:not(.p-channel_sidebar__channel--muted, .p-channel_sidebar__channel--suggested) .p-channel_sidebar__name {    
+    opacity: inherit !important;
+    color: inherit !important;
+    font-weight: inherit !important;
+}
+
+/* channel headings such as "Channels" or "Starred" are different color if a channel in the section is unread. */
+.p-channel_sidebar__section_heading:not(.p-channel_sidebar__section_heading--selected) .p-channel_sidebar__section_heading_label--unreads {
+    color: inherit !important;
+}
+
+/* when channel headings are collapsed, they get bolded. Remove that. */
+.p-channel_sidebar__section_heading--collapsed .p-channel_sidebar__section_heading_label--unreads {
+    font-weight: inherit !important;
 }
